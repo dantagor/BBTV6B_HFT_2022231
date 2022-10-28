@@ -13,4 +13,10 @@
     <PackageReference Include="coverlet.collector" Version="3.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BBTV6B_HFT_2022231.Logic\BBTV6B_HFT_2022231.Logic.csproj" />
+    <ProjectReference Include="..\BBTV6B_HFT_2022231.Models\BBTV6B_HFT_2022231.Models.csproj" />
+    <ProjectReference Include="..\BBTV6B_HFT_2022231.Repository\BBTV6B_HFT_2022231.Repository.csproj" />
+  </ItemGroup>
+
 </Project>
