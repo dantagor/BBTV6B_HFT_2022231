@@ -19,7 +19,7 @@ namespace BBTV6B_HFT_2022231.Models.Entities
 
         public string Ticker { get; set; }
 
-        public string Region { get; set; }
+        public bool Dividend { get; set; }
 
         [NotMapped]
         [JsonIgnore]
@@ -30,7 +30,7 @@ namespace BBTV6B_HFT_2022231.Models.Entities
 
         public override string ToString()
         {
-            return $"#{Id}-STOCK: Ticker = {Ticker}, Company = {Company}, Region = {Region}, ExchangeId = {ExchangeId}";
+            return $"#{Id}-STOCK: Ticker = {Ticker}, Company = {Company}, Dividend = {Dividend}, ExchangeId = {ExchangeId}";
         }
     }
 }
