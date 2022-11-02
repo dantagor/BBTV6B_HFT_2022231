@@ -28,6 +28,9 @@ namespace BBTV6B_HFT_2022231.Models.Entities
         [ForeignKey(nameof(Exchange))]
         public int ExchangeId { get; set; }
 
+        [NotMapped]
+        public virtual ICollection<Transaction> Transactions { get; set; }
+
         public override string ToString()
         {
             return $"#{Id}-STOCK: Ticker = {Ticker}, Company = {Company}, Dividend = {Dividend}, ExchangeId = {ExchangeId}";
