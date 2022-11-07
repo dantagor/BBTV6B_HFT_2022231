@@ -42,7 +42,33 @@ namespace BBTV6B_HFT_2022231.Repository
                     .OnDelete(DeleteBehavior.Restrict);
             });
             // LOAD DATA TO DATABASE
+            Exchange nyse = new Exchange(1,"NYSE","New York Stock Exchange","USA");
+            Exchange nasdaq = new Exchange(2,"NASDAQ", "NASDAQ Stock Exchange", "USA");
+            Exchange sse = new Exchange(3,"SSE", "Shanghai Stock Exchange", "China");
+            Exchange tse = new Exchange(4, "TSE", "Tokyo Stock Exchange", "Japan");
 
+            Stock nio = new Stock(1, "Nio Inc.", "NIO", 1, false);
+            Stock ali = new Stock(2, "Alibaba Group", "BABA", 1, false);
+            Stock apple = new Stock(3, "Apple Inc.", "AAPL", 2, true);
+            Stock amaz = new Stock(4, "Amazon.com, Inc.", "AMZN", 2, false);
+            Stock longi = new Stock(5, "LONGi Green Energy Tech. Co Ltd", "601012", 3, true);
+            Stock sany = new Stock(6, "Sany Heavy Industry Co., Ltd", "600031", 3, true);
+            Stock soft = new Stock(7, "SoftBank Group Corp", "9984", 4, true);
+            Stock mits = new Stock(8, "Mitsubishi Corp", "8058", 4, true);
+
+            Transaction t1 = new Transaction(1, 1, 3, new DateTime(2022, 11, 2));       // 3 Nio stock purchase
+            Transaction t2 = new Transaction(2, 2, 6, new DateTime(2022, 11, 2));       // 6 Alibaba stock purchase
+            Transaction t3 = new Transaction(3, 2, 3, new DateTime(2022, 11, 3));       // 3 Alibaba stock purchase
+            Transaction t4 = new Transaction(4, 3, 2, new DateTime(2022, 11, 3));       // 2 Apple stock purchase
+            Transaction t5 = new Transaction(5, 4, 4, new DateTime(2022, 11, 3));       // 4 Amazon stock purchase
+            Transaction t6 = new Transaction(6, 5, 100, new DateTime(2022, 11, 4));     // 100 LONGi stock purchase
+            Transaction t7 = new Transaction(7, 6, 250, new DateTime(2022, 11, 4));     // 250 Sany stock purchase
+            Transaction t8 = new Transaction(8, 7, 20, new DateTime(2022, 11, 5));      // 20 SoftBank stock purchase
+            Transaction t9 = new Transaction(9, 8, 30, new DateTime(2022, 11, 7));      // 30 Mitsubishi stock purchase
+
+            modelBuilder.Entity<Exchange>().HasData(nyse,nasdaq,sse,tse);
+            modelBuilder.Entity<Stock>().HasData(nio, ali, apple, amaz, longi, sany, soft, mits);
+            modelBuilder.Entity<Transaction>().HasData(t1, t2, t3, t4, t5, t6, t7, t8, t9);
         }
     }
 }

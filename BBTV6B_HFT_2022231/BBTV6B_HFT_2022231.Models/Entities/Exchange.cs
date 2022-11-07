@@ -12,7 +12,9 @@ namespace BBTV6B_HFT_2022231.Models.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Id { get; set; }
+        public int Id { get; set; }
+
+        public string NameShort { get; set; }
 
         public string Name { get; set; }
 
@@ -25,10 +27,18 @@ namespace BBTV6B_HFT_2022231.Models.Entities
         {
             Stocks = new HashSet<Stock>();
         }
+        public Exchange(int id, string nameShort, string name, string region)
+        {
+            Id = id;
+            NameShort = nameShort;
+            Name = name;
+            Region = region;
+            Stocks = new HashSet<Stock>();
+        }
 
         public override string ToString()
         {
-            return $"#{Id}-EXCHANGE: {Name}, Region = {Region}";
+            return $"#{Id}-EXCHANGE: {NameShort}- {Name}, Region = {Region}";
         }
     }
 }

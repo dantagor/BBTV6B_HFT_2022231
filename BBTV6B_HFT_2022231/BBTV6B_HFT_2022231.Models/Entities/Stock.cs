@@ -31,6 +31,21 @@ namespace BBTV6B_HFT_2022231.Models.Entities
         [NotMapped]
         public virtual ICollection<Transaction> Transactions { get; set; }
 
+        public Stock()
+        {
+            Transactions = new HashSet<Transaction>();
+        }
+
+        public Stock(int id, string company, string ticker, int exchId, bool dividend)
+        {
+            Id = id;
+            Company = company;
+            Ticker = ticker;
+            Dividend = dividend;
+            ExchangeId = exchId;
+            Transactions = new HashSet<Transaction>();
+        }
+
         public override string ToString()
         {
             return $"#{Id}-STOCK: Ticker = {Ticker}, Company = {Company}, Dividend = {Dividend}, ExchangeId = {ExchangeId}";
