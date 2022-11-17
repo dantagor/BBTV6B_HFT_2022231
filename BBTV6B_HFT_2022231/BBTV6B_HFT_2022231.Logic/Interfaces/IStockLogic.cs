@@ -7,13 +7,12 @@ using BBTV6B_HFT_2022231.Models.Entities;
 
 namespace BBTV6B_HFT_2022231.Logic.Interfaces
 {
-    public interface IExchangeLogic
+    public interface IStockLogic
     {
-        void Create(Exchange item);
-        void Update(Exchange item);
+        void Create(Stock item);
+        void Update(Stock item);
         void Delete(int id);
-        Exchange Read(int id);
-        IQueryable<Exchange> ReadAll();
-
+        Stock Read(int id);
+        IQueryable<Stock> ReadAll();
     }
 }
