@@ -19,7 +19,7 @@ namespace BBTV6B_HFT_2022231.Models.Entities
 
         public string Ticker { get; set; }
 
-        public bool Dividend { get; set; }
+        public double Dividend { get; set; }        // in percentage format
 
         [NotMapped]
         [JsonIgnore]
@@ -36,7 +36,7 @@ namespace BBTV6B_HFT_2022231.Models.Entities
             Transactions = new HashSet<Transaction>();
         }
 
-        public Stock(int id, string company, string ticker, int exchId, bool dividend)
+        public Stock(int id, string company, string ticker, int exchId, double dividend)
         {
             Id = id;
             Company = company;

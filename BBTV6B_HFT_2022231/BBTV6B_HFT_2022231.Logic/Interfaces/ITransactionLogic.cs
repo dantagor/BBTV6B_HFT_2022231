@@ -10,12 +10,14 @@ namespace BBTV6B_HFT_2022231.Logic.Interfaces
 {
     public interface ITransactionLogic
     {
+        //  CRUD
         void Create(Transaction item);
         void Update(Transaction item);
         void Delete(int id);
         Transaction Read(int id);
         IQueryable<Transaction> ReadAll();
 
+        //  Non-CRUD
         Stock BestSellerStock();
         Exchange MostPopularExchange();
         IQueryable<TransactionStatistics> ReadTransactionStats();
