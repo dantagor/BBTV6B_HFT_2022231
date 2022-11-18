@@ -18,7 +18,7 @@ namespace BBTV6B_HFT_2022231.Logic.Interfaces
         IQueryable<Transaction> ReadAll();
 
         //  Non-CRUD
-        Stock BestSellerStock();
+        Stock BestSellerStockByExchange(string exchange);
         Exchange MostPopularExchange();
         IQueryable<TransactionStatistics> ReadTransactionStats();
     }
