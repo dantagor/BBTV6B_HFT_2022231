@@ -47,14 +47,14 @@ namespace BBTV6B_HFT_2022231.Repository
             Exchange sse = new Exchange(3,"SSE", "Shanghai Stock Exchange", "China");
             Exchange tse = new Exchange(4, "TSE", "Tokyo Stock Exchange", "Japan");
 
-            Stock nio = new Stock(1, "Nio Inc.", "NIO", 1, false);
-            Stock ali = new Stock(2, "Alibaba Group", "BABA", 1, false);
-            Stock apple = new Stock(3, "Apple Inc.", "AAPL", 2, true);
-            Stock amaz = new Stock(4, "Amazon.com, Inc.", "AMZN", 2, false);
-            Stock longi = new Stock(5, "LONGi Green Energy Tech. Co Ltd", "601012", 3, true);
-            Stock sany = new Stock(6, "Sany Heavy Industry Co., Ltd", "600031", 3, true);
-            Stock soft = new Stock(7, "SoftBank Group Corp", "9984", 4, true);
-            Stock mits = new Stock(8, "Mitsubishi Corp", "8058", 4, true);
+            Stock nio = new Stock(1, "Nio Inc.", "NIO", 1, 0, 11.98);
+            Stock ali = new Stock(2, "Alibaba Group", "BABA", 1, 0, 84.87);
+            Stock apple = new Stock(3, "Apple Inc.", "AAPL", 2, 0.65, 141.66);
+            Stock amaz = new Stock(4, "Amazon.com, Inc.", "AMZN", 2, 0, 92.24);
+            Stock longi = new Stock(5, "LONGi Green Energy Tech. Co Ltd", "601012", 3, 0.41, 6.46);
+            Stock sany = new Stock(6, "Sany Heavy Industry Co., Ltd", "600031", 3, 2.83, 2.25);
+            Stock soft = new Stock(7, "SoftBank Group Corp", "9984", 4, 0.74, 42.72);
+            Stock mits = new Stock(8, "Mitsubishi Corp", "8058", 4, 3.39, 33.05);
 
             Transaction t1 = new Transaction(1, 1, 3, new DateTime(2022, 11, 2));       // 3 Nio stock purchase
             Transaction t2 = new Transaction(2, 2, 6, new DateTime(2022, 11, 2));       // 6 Alibaba stock purchase

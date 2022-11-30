@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BBTV6B_HFT_2022231.Logic.Interfaces;
+using BBTV6B_HFT_2022231.Models.DTOs;
 using BBTV6B_HFT_2022231.Models.Entities;
 using BBTV6B_HFT_2022231.Repository;
 
