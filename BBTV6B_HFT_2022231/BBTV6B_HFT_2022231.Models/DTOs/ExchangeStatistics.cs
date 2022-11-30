@@ -10,16 +10,20 @@ namespace BBTV6B_HFT_2022231.Models.DTOs
     {
         public string ExchangeName { get; set; }
         public int StockCount { get; set; }
+        public double AvgDividend { get; set; }
+
+
         public override bool Equals(object obj)
         {
             return obj is ExchangeStatistics statistic &&
                 statistic.ExchangeName == ExchangeName &&
-                statistic.StockCount == StockCount;
+                statistic.StockCount == StockCount &&
+                statistic.AvgDividend == AvgDividend;
         }
 
         public override string ToString()
         {
-            return $"Exchange = {ExchangeName}, Number of companies = {StockCount}";
+            return $"Exchange = {ExchangeName}, Number of companies = {StockCount}, Average Dividend = {AvgDividend}";
         }
     }
 }

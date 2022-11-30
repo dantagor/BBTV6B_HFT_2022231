@@ -10,7 +10,7 @@ using BBTV6B_HFT_2022231.Repository;
 
 namespace BBTV6B_HFT_2022231.Logic.Classes
 {
-    internal class StockLogic : IStockLogic
+    public class StockLogic : IStockLogic
     {
         IRepository<Stock> repo;
 
@@ -36,7 +36,7 @@ namespace BBTV6B_HFT_2022231.Logic.Classes
                       orderby stock.Dividend descending
                       select stock;
 
-            return res.First();
+            return res.FirstOrDefault();
         }
 
         public Stock Read(int id)
@@ -51,7 +51,15 @@ namespace BBTV6B_HFT_2022231.Logic.Classes
 
         public IQueryable<ExchangeStatistics> ReadExchangeStats()
         {
-            throw new NotImplementedException();
+            var res = from stock in repo.ReadAll()
+                      group stock by stock.Exchange into grp
+                      select new ExchangeStatistics()
+                      {
+                          ExchangeName = grp.Key.Name,
+                          StockCount = grp.Count(),
+                          AvgDividend = grp.Average(o => o.Dividend)
+                      };
+            return res;
         }
 
         public void Update(Stock item)
