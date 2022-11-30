@@ -10,6 +10,7 @@ namespace BBTV6B_HFT_2022231.Models.Entities
 {
     public class Transaction
     {
+        public Transaction() { }
         public Transaction(int id, int stockId, int amount, DateTime date)
         {
             Id = id;
@@ -23,7 +24,7 @@ namespace BBTV6B_HFT_2022231.Models.Entities
         public int Id { get; set; }
 
         [NotMapped]
-        public Stock Stock { get; set; }
+        public virtual Stock Stock { get; set; }
 
         [ForeignKey(nameof(Stock))]
         public int StockId { get; set; }
@@ -32,7 +33,10 @@ namespace BBTV6B_HFT_2022231.Models.Entities
 
         public DateTime Date { get; set; }
 
-        
+        public double GetTotalPrice()
+        {
+            return Amount * Stock.Price;
+        }
 
         public override string ToString()
         {

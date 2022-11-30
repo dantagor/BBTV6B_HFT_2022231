@@ -34,7 +34,7 @@ namespace BBTV6B_HFT_2022231.Logic.Classes
             return this.repo.Read(id);
         }
 
-        public IQueryable<Exchange> ReadAll()
+        public IEnumerable<Exchange> ReadAll()
         {
             return this.repo.ReadAll();
         }

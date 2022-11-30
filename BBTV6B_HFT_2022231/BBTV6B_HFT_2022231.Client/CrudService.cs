@@ -27,6 +27,14 @@ namespace BBTV6B_HFT_2022231.Client
                 {
                     property.SetValue(instance, int.Parse(input));
                 }
+                else if (property.PropertyType == typeof(double))
+                {
+                    property.SetValue(instance, double.Parse(input));
+                }
+                else if (property.PropertyType == typeof(DateTime)) 
+                {
+                    property.SetValue(instance, DateTime.Parse(input));
+                }
                 else
                 {
                     property.SetValue(instance, input);

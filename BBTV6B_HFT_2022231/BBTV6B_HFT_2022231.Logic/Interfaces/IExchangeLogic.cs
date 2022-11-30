@@ -14,7 +14,7 @@ namespace BBTV6B_HFT_2022231.Logic.Interfaces
         void Update(Exchange item);
         void Delete(int id);
         Exchange Read(int id);
-        IQueryable<Exchange> ReadAll();
+        IEnumerable<Exchange> ReadAll();
 
     }
 }

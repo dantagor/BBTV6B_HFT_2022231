@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace BBTV6B_HFT_2022231.Endpoint.Controllers
 {
+    [Route("[controller]/[action]")]
+    [ApiController]
     public class StatController : ControllerBase
     {
         ITransactionLogic transLogic;
@@ -27,7 +29,7 @@ namespace BBTV6B_HFT_2022231.Endpoint.Controllers
         }
 
         [HttpGet]
-        public IQueryable<ExchangeStatistics> ReadExchangeStats()
+        public IEnumerable<ExchangeStatistics> ReadExchangeStats()
         {
             return this.stockLogic.ReadExchangeStats();
         }
@@ -39,7 +41,7 @@ namespace BBTV6B_HFT_2022231.Endpoint.Controllers
         }
 
         [HttpGet]
-        public IQueryable<TransactionStatistics> ReadTransactionStats()
+        public IEnumerable<TransactionStatistics> ReadTransactionStats()
         {
             return this.transLogic.ReadTransactionStats();
         }

@@ -24,7 +24,7 @@ namespace BBTV6B_HFT_2022231.Logic.Classes
         {
             //var res = repo.ReadAll().Where(o => o.Stock.Exchange.Name.Equals(exchange)).GroupBy(q => q.Stock).OrderByDescending(gp => gp.Count()).Select(g => g.Key);
             var res = from transaction in repo.ReadAll()
-                      where transaction.Stock.Exchange.Name.Equals(exchange)
+                      where transaction.Stock.Exchange.Name == exchange
                       group transaction by transaction.Stock into grp
                       orderby grp.Count() descending
                       select grp.Key;
@@ -60,10 +60,11 @@ namespace BBTV6B_HFT_2022231.Logic.Classes
                       {
                           TransactionYear = grp.Key.ToString(),
                           TransactionCount = grp.Count(),
-                          Volume = grp.Sum(o => o.Stock.Price * o.Amount)
+                          Volume = grp.Sum(o => o.Stock.Price)
                       };
             return res;
         }
+        
 
         public int TotalTransactionsByExchange(string exchange)
         {

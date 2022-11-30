@@ -6,6 +6,8 @@ using System.Collections.Generic;
 
 namespace BBTV6B_HFT_2022231.Endpoint.Controllers
 {
+    [Route("[controller]")]
+    [ApiController]
     public class TransactionController : ControllerBase
     {
         ITransactionLogic logic;

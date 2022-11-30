@@ -19,14 +19,18 @@ namespace BBTV6B_HFT_2022231.Client
 
         public void HighestDividendStockFromRegion() 
         {
-            var stock = rest.GetSingle<Stock>("Stat/HighestDividendStockFromRegion");
+            Console.WriteLine("Enter the Region You are interested in:");
+            string region = Console.ReadLine();
+            var stock = rest.GetSingle<Stock>($"Stat/HighestDividendStockFromRegion?region={region}");
             Console.WriteLine($"Stock with highest payout from the region is: {stock}");
             Console.ReadLine();
         }
 
         public void TotalTransactionsByExchange()
         {
-            var count = rest.GetSingle<int>("Stat/TotalTransactionsByExchange");
+            Console.WriteLine("Enter the Exchange You are interested in:");
+            string exchange = Console.ReadLine();
+            var count = rest.GetSingle<int>($"Stat/TotalTransactionsByExchange?exchange={exchange}");
             Console.WriteLine($"Total number of transactions in that exchange is {count}.");
             Console.ReadLine();
         }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using BBTV6B_HFT_2022231.Logic.Classes;
 using BBTV6B_HFT_2022231.Logic.Interfaces;
@@ -38,6 +39,8 @@ namespace BBTV6B_HFT_2022231.Endpoint
             services.AddTransient<IStockLogic, StockLogic>();
 
             services.AddControllers();
+            services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "StockDB.Endpoint", Version = "v1" });
             });
