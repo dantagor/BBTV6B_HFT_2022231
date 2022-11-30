@@ -10,7 +10,7 @@ using BBTV6B_HFT_2022231.Repository;
 
 namespace BBTV6B_HFT_2022231.Logic.Classes
 {
-    internal class TransactionLogic : ITransactionLogic
+    public class TransactionLogic : ITransactionLogic
     {
         IRepository<Transaction> repo;
 
@@ -22,7 +22,12 @@ namespace BBTV6B_HFT_2022231.Logic.Classes
 
         public Stock BestSellerStockByExchange(string exchange)
         {
-            var res = repo.ReadAll().Where(o => o.Stock.Exchange.Name.Equals(exchange)).GroupBy(q => q.Stock).OrderByDescending(gp => gp.Count()).Select(g => g.Key);
+            //var res = repo.ReadAll().Where(o => o.Stock.Exchange.Name.Equals(exchange)).GroupBy(q => q.Stock).OrderByDescending(gp => gp.Count()).Select(g => g.Key);
+            var res = from transaction in repo.ReadAll()
+                      where transaction.Stock.Exchange.Name.Equals(exchange)
+                      group transaction by transaction.Stock into grp
+                      orderby grp.Count() descending
+                      select grp.Key;
 
             return res.FirstOrDefault();
         }
