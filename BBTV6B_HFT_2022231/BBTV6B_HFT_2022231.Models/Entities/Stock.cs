@@ -19,6 +19,8 @@ namespace BBTV6B_HFT_2022231.Models.Entities
 
         public string Ticker { get; set; }
 
+        public double Price { get; set; }
+
         public double Dividend { get; set; }        // in percentage format
 
         [NotMapped]
@@ -36,11 +38,12 @@ namespace BBTV6B_HFT_2022231.Models.Entities
             Transactions = new HashSet<Transaction>();
         }
 
-        public Stock(int id, string company, string ticker, int exchId, double dividend)
+        public Stock(int id, string company, string ticker, int exchId, double dividend, double price)
         {
             Id = id;
             Company = company;
             Ticker = ticker;
+            Price = price;
             Dividend = dividend;
             ExchangeId = exchId;
             Transactions = new HashSet<Transaction>();
@@ -48,7 +51,7 @@ namespace BBTV6B_HFT_2022231.Models.Entities
 
         public override string ToString()
         {
-            return $"#{Id}-STOCK: Ticker = {Ticker}, Company = {Company}, Dividend = {Dividend}, ExchangeId = {ExchangeId}";
+            return $"#{Id}-STOCK: Ticker = {Ticker}, Company = {Company}, Price = {Price}, Dividend = {Dividend}, ExchangeId = {ExchangeId}";
         }
     }
 }

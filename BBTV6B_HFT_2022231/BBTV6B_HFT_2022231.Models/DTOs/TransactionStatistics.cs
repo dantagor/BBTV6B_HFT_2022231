@@ -11,19 +11,19 @@ namespace BBTV6B_HFT_2022231.Models.DTOs
     {
         public string TransactionYear { get; set; }
         public int TransactionCount { get; set; }
-        public Stock MostPopularStock { get; set; }
+        public double Volume { get; set; }
 
         public override bool Equals(object obj)
         {
             return obj is TransactionStatistics statistic &&
                 TransactionYear == statistic.TransactionYear &&
                 TransactionCount == statistic.TransactionCount &&
-                MostPopularStock == statistic.MostPopularStock;
+                Volume == statistic.Volume;
         }
 
         public override string ToString()
         {
-            return $"TransactionYear = {TransactionYear}, TransactionCount = {TransactionCount}, MostPopularStock = {MostPopularStock.Company}";
+            return $"Year = {TransactionYear}, Number of orders = {TransactionCount}, Total Volume = ${Volume}";
         }
     }
 }

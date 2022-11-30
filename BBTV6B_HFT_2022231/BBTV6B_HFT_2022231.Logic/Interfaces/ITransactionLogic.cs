@@ -19,7 +19,7 @@ namespace BBTV6B_HFT_2022231.Logic.Interfaces
 
         //  Non-CRUD
         Stock BestSellerStockByExchange(string exchange);
-        Exchange MostPopularExchange();
+        int TotalTransactionsByExchange(string exchange);
         IQueryable<TransactionStatistics> ReadTransactionStats();
     }
 }

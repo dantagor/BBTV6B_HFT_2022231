@@ -31,7 +31,12 @@ namespace BBTV6B_HFT_2022231.Logic.Classes
 
         public Stock HighestDividendStockFromRegion(string region)
         {
-            throw new NotImplementedException();
+            var res = from stock in repo.ReadAll()
+                      where stock.Exchange.Region == region
+                      orderby stock.Dividend descending
+                      select stock;
+
+            return res.First();
         }
 
         public Stock Read(int id)
