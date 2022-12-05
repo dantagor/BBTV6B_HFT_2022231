@@ -37,7 +37,9 @@ namespace BBTV6B_HFT_2022231.Client
 
         public void BestSellerStockByExchange()
         {
-            var stock = rest.GetSingle<Stock>("Stat/BestSellerStockByExchange");
+            Console.WriteLine("Enter the Exchange You are interested in:");
+            string exchange = Console.ReadLine();
+            var stock = rest.GetSingle<Stock>($"Stat/BestSellerStockByExchange?exchange={exchange}");
             Console.WriteLine($"Most popular stock by transaction is: {stock}");
             Console.ReadLine();
         }
