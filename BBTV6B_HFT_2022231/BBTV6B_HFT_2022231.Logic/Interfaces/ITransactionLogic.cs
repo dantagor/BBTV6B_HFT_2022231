@@ -21,5 +21,6 @@ namespace BBTV6B_HFT_2022231.Logic.Interfaces
         Stock BestSellerStockByExchange(string exchange);
         int TotalTransactionsByExchange(string exchange);
         IQueryable<TransactionStatistics> ReadTransactionStats();
+        Transaction GetBiggestPurchase();
     }
 }

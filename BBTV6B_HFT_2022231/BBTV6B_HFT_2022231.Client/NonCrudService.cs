@@ -61,5 +61,11 @@ namespace BBTV6B_HFT_2022231.Client
             }
             Console.ReadLine();
         }
+
+        public void GetBiggestPurchase() {
+            var trans = rest.GetSingle<Transaction>("Stat/GetBiggestPurchase");
+            Console.WriteLine($"Biggest purchase by total amount is: {trans}");
+            Console.ReadLine();
+        }
     }
 }

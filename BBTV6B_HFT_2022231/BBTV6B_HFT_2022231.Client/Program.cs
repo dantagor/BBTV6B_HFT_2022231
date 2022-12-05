@@ -38,6 +38,7 @@ namespace BBTV6B_HFT_2022231.Client
                 .Add("Stock with Highest Dividend from specific Region", () => nonCrud.HighestDividendStockFromRegion())
                 .Add("Number of transactions in specific Exchange", () => nonCrud.TotalTransactionsByExchange())
                 .Add("Most popular stock in specific Exchange", ()=> nonCrud.BestSellerStockByExchange())
+                .Add("Biggest purchase by Volume", ()=> nonCrud.GetBiggestPurchase())
                 .Add("Exchange Statistics", ()=>nonCrud.ReadExchangeStats())
                 .Add("Transaction Statistics", ()=>nonCrud.ReadTransactionStats())
                 .Add("Exit", ConsoleMenu.Close);

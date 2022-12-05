@@ -51,5 +51,11 @@ namespace BBTV6B_HFT_2022231.Endpoint.Controllers
         {
             return this.transLogic.BestSellerStockByExchange(exchange);
         }
+
+        [HttpGet]
+        public Transaction GetBiggestPurchase()
+        {
+            return this.transLogic.GetBiggestPurchase();
+        }
     }
 }

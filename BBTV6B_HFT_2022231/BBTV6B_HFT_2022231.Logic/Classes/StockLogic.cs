@@ -51,7 +51,7 @@ namespace BBTV6B_HFT_2022231.Logic.Classes
 
         public IQueryable<ExchangeStatistics> ReadExchangeStats()
         {
-            var res = from stock in repo.ReadAll()
+            var res = from stock in repo.ReadAll().ToList()
                       group stock by stock.Exchange into grp
                       select new ExchangeStatistics()
                       {
@@ -59,12 +59,14 @@ namespace BBTV6B_HFT_2022231.Logic.Classes
                           StockCount = grp.Count(),
                           AvgDividend = grp.Average(o => o.Dividend)
                       };
-            return res;
+            return res.AsQueryable();
         }
 
         public void Update(Stock item)
         {
             repo.Update(item);
         }
+
+
     }
 }
