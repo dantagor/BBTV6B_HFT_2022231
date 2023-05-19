@@ -65,6 +65,12 @@ namespace BBTV6B_HFT_2022231.Endpoint
                 await context.Response.WriteAsJsonAsync(response);
             }));
 
+            app.UseCors(x => x
+                .AllowCredentials()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .WithOrigins("http://localhost:44324"));
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
