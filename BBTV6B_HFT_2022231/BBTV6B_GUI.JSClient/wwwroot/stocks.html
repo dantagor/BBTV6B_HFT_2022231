@@ -35,16 +35,22 @@
             <h4 class="pt-3">Add new stock:</h4>
             <div class="row gx-3">
                 <div class="col">
-                    <input type="text" class="form-control mb-3" id="newExcTicker" placeholder="Ticker" />
+                    <input type="text" required class="form-control mb-3" id="newStockTicker" placeholder="Ticker" />
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control mb-3" id="newExcName" placeholder="Exchange name" />
+                    <input type="text" required class="form-control mb-3" id="newStockName" placeholder="Company" />
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control mb-3" id="newExcRegion" placeholder="Region" />
+                    <input type="number" required class="form-control mb-3" id="newStockExcId" placeholder="Exchange ID" />
                 </div>
                 <div class="col">
-                    <button type="button" onclick="CreateNewExchange()" class="btn btn-primary">Add</button>
+                    <input type="number" required class="form-control mb-3" id="newStockDividend" placeholder="Dividend" />
+                </div>
+                <div class="col">
+                    <input type="number" required class="form-control mb-3" id="newStockPrice" placeholder="Price" />
+                </div>
+                <div class="col">
+                    <button type="button" onclick="CreateNewStock()" class="btn btn-primary">Add</button>
                 </div>
             </div>
         </div>
