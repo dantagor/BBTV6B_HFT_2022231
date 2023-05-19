@@ -87,6 +87,19 @@ function UpdateExchange() {
     // Hide Edit Form
     document.getElementById("f_editExchange").classList.add("d-none");
 }
+function DeleteExchange(id) {
+    fetch('http://localhost:33531/exchange/' + id, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json', },
+        body: null
+    })
+        .then(response => response)
+        .then(data => {
+            console.log('Success: ', data);
+            GetExchangeData();
+        })
+        .catch((error) => { console.error('Error: ', error) });
+}
 
 // Other FXs
 function GetUniqueExchangeId(max) {
