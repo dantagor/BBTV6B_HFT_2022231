@@ -1,10 +1,87 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stocks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
+<header>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light" href="index.html">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="exchanges.html">Exchanges</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="stocks.html">Stocks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="transactions.html">Transactions</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 <body>
-
+    <div class="container p-3">
+        <div id="f_newExchange">
+            <h4 class="pt-3">Add new stock:</h4>
+            <div class="row gx-3">
+                <div class="col">
+                    <input type="text" class="form-control mb-3" id="newExcTicker" placeholder="Ticker" />
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control mb-3" id="newExcName" placeholder="Exchange name" />
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control mb-3" id="newExcRegion" placeholder="Region" />
+                </div>
+                <div class="col">
+                    <button type="button" onclick="CreateNewExchange()" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
+        <div id="f_editExchange" class="d-none">
+            <h4 class="pt-3">Edit exchange:</h4>
+            <div class="row gx-3">
+                <div class="col">
+                    <input type="text" class="form-control mb-3" id="modExcTicker" placeholder="Ticker" />
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control mb-3" id="modExcName" placeholder="Exchange name" />
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control mb-3" id="modExcRegion" placeholder="Region" />
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-primary" onclick="UpdateExchange()">Save</button>
+                </div>
+            </div>
+        </div>
+        <h4 class="pt-3">Available stocks:</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Ticker</th>
+                    <th scope="col">Company</th>
+                    <th scope="col">Exchange ID</th>
+                    <th scope="col">Dividend(%)</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="stockHolder" class="table-group-divider"></tbody>
+        </table>
+    </div>
+    <script src="js/stock.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
