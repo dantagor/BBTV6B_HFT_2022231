@@ -27,7 +27,7 @@ function DisplayStockData() {
                 <td>${t.price}</td>
                 <td>
                     <button type="button" class="btn btn-primary" onclick="ModifyExchange('${t.id}')">Buy</button>
-                    <button type="button" class="btn btn-warning" onclick="ModifyExchange('${t.id}')">Edit</button>
+                    <button type="button" class="btn btn-warning" onclick="ModifyStock('${t.id}')">Edit</button>
                     <button type="button" class="btn btn-danger" onclick="DeleteStock('${t.id}')">Delete</button>
                 </td>
             </tr>
@@ -78,6 +78,43 @@ function DeleteStock(id) {
         })
         .catch((error) => { console.error('Error: ', error) });
 }
+function ModifyStock(id) {
+    document.getElementById("f_editStock").classList.remove("d-none");
+    let s = GetStockById(id);
+    document.getElementById("modStockTicker").value = s.ticker;
+    document.getElementById("modStockName").value = s.company;
+    document.getElementById("modStockPrice").value = s.price;
+    document.getElementById("modStockDividend").value = s.dividend;
+    document.getElementById("modStockExcId").value = s.exchangeId;
+
+    stockIdToUpdate = s.id;
+    console.log(stockIdToUpdate);
+}
+function UpdateStock() {
+    // Get data from form inputs
+    let ticker = document.getElementById("modStockTicker").value;
+    let company = document.getElementById("modStockName").value;
+    let price = document.getElementById("modStockPrice").value;
+    let dividend = document.getElementById("modStockDividend").value;
+    let exchangeId = document.getElementById("modStockExcId").value;
+
+    // Send Update call to API
+    fetch('http://localhost:33531/stock', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', },
+        body: JSON.stringify(
+            { id: stockIdToUpdate, company: company, ticker: ticker, price: price, dividend: dividend, exchangeId: exchangeId })
+    })
+        .then(response => response)
+        .then(data => {
+            console.log('Success: ', data);
+            GetStockData();
+        })
+        .catch(error => { console.log('Error: ', error) });
+
+    // Hide Edit Form
+    document.getElementById("f_editStock").classList.add("d-none");
+}
 
 // Other FXs
 function GetUniqueStockId(max) {
@@ -86,4 +123,7 @@ function GetUniqueStockId(max) {
         id = Math.floor(Math.random() * max) + 1;
     } while (stocks.filter(x => x.id == id).length > 0);
     return id;
+}
+function GetStockById(id) {
+    return stocks.filter(x => x.id == id)[0];
 }

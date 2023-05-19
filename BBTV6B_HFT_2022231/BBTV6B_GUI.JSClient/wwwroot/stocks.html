@@ -54,20 +54,31 @@
                 </div>
             </div>
         </div>
-        <div id="f_editExchange" class="d-none">
+        <div id="f_editStock" class="d-none">
             <h4 class="pt-3">Edit exchange:</h4>
             <div class="row gx-3">
                 <div class="col">
-                    <input type="text" class="form-control mb-3" id="modExcTicker" placeholder="Ticker" />
+                    <label for="modStockTicker">Ticker:</label>
+                    <input type="text" required class="form-control mb-3" id="modStockTicker" placeholder="Ticker" />
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control mb-3" id="modExcName" placeholder="Exchange name" />
+                    <label for="modStockName">Company:</label>
+                    <input type="text" required class="form-control mb-3" id="modStockName" placeholder="Company" />
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control mb-3" id="modExcRegion" placeholder="Region" />
+                    <label for="modStockExcId">Exchange ID:</label>
+                    <input type="number" required class="form-control mb-3" id="modStockExcId" placeholder="Exchange ID" />
                 </div>
                 <div class="col">
-                    <button type="button" class="btn btn-primary" onclick="UpdateExchange()">Save</button>
+                    <label for="modStockDividend">Dividend:</label>
+                    <input type="number" required class="form-control mb-3" id="modStockDividend" placeholder="Dividend" />
+                </div>
+                <div class="col">
+                    <label for="modStockPrice">Price:</label>
+                    <input type="number" required class="form-control mb-3" id="modStockPrice" placeholder="Price" />
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-primary" onclick="UpdateStock()">Save</button>
                 </div>
             </div>
         </div>
