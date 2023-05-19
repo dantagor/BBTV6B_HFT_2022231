@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using BBTV6B_HFT_2022231.Endpoint.Services;
 using BBTV6B_HFT_2022231.Logic.Classes;
 using BBTV6B_HFT_2022231.Logic.Interfaces;
 using BBTV6B_HFT_2022231.Models.Entities;
@@ -38,6 +39,8 @@ namespace BBTV6B_HFT_2022231.Endpoint
             services.AddTransient<IExchangeLogic, ExchangeLogic>();
             services.AddTransient<IStockLogic, StockLogic>();
 
+            services.AddSignalR();
+
             services.AddControllers();
             services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
 
@@ -67,6 +70,7 @@ namespace BBTV6B_HFT_2022231.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }

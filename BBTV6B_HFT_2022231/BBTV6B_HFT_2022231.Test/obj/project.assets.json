@@ -7818,24 +7818,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lendv\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Hp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lendv\\OneDrive\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Test\\BBTV6B_HFT_2022231.Test.csproj",
+      "projectUniqueName": "C:\\Users\\Hp\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Test\\BBTV6B_HFT_2022231.Test.csproj",
       "projectName": "BBTV6B_HFT_2022231.Test",
-      "projectPath": "C:\\Users\\lendv\\OneDrive\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Test\\BBTV6B_HFT_2022231.Test.csproj",
-      "packagesPath": "C:\\Users\\lendv\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lendv\\OneDrive\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Test\\obj\\",
+      "projectPath": "C:\\Users\\Hp\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Test\\BBTV6B_HFT_2022231.Test.csproj",
+      "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Hp\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Test\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\lendv\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7849,14 +7844,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\lendv\\OneDrive\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Logic\\BBTV6B_HFT_2022231.Logic.csproj": {
-              "projectPath": "C:\\Users\\lendv\\OneDrive\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Logic\\BBTV6B_HFT_2022231.Logic.csproj"
+            "C:\\Users\\Hp\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Logic\\BBTV6B_HFT_2022231.Logic.csproj": {
+              "projectPath": "C:\\Users\\Hp\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Logic\\BBTV6B_HFT_2022231.Logic.csproj"
             },
-            "C:\\Users\\lendv\\OneDrive\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Models\\BBTV6B_HFT_2022231.Models.csproj": {
-              "projectPath": "C:\\Users\\lendv\\OneDrive\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Models\\BBTV6B_HFT_2022231.Models.csproj"
+            "C:\\Users\\Hp\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Models\\BBTV6B_HFT_2022231.Models.csproj": {
+              "projectPath": "C:\\Users\\Hp\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Models\\BBTV6B_HFT_2022231.Models.csproj"
             },
-            "C:\\Users\\lendv\\OneDrive\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Repository\\BBTV6B_HFT_2022231.Repository.csproj": {
-              "projectPath": "C:\\Users\\lendv\\OneDrive\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Repository\\BBTV6B_HFT_2022231.Repository.csproj"
+            "C:\\Users\\Hp\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Repository\\BBTV6B_HFT_2022231.Repository.csproj": {
+              "projectPath": "C:\\Users\\Hp\\Documents\\GitHub\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231\\BBTV6B_HFT_2022231.Repository\\BBTV6B_HFT_2022231.Repository.csproj"
             }
           }
         }
@@ -7907,7 +7902,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
       }
     }
   }
