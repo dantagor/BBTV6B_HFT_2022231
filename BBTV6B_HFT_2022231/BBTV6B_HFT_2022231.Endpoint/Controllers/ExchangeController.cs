@@ -15,13 +15,13 @@ namespace BBTV6B_HFT_2022231.Endpoint.Controllers
         IExchangeLogic logic;
         private readonly IHubContext<SignalRHub> hub;
 
-        public ExchangeController(IExchangeLogic logic, IHubContext<SignalRHub> hub)
-        {
-            this.logic = logic;
-            this.hub = hub;
-        }
+        //public ExchangeController(IExchangeLogic logic, IHubContext<SignalRHub> hub)
+        //{
+        //    this.logic = logic;
+        //    this.hub = hub;
+        //}
 
-        public ExchangeController(IExchangeLogic logic) 
+        public ExchangeController(IExchangeLogic logic)
         {
             this.logic = logic;
         }
@@ -42,7 +42,7 @@ namespace BBTV6B_HFT_2022231.Endpoint.Controllers
         public void Create([FromBody] Exchange value)
         {
             this.logic.Create(value);
-            hub.Clients.All.SendAsync("ExchangeCreated", value);
+            //hub.Clients.All.SendAsync("ExchangeCreated", value);
         }
 
         [HttpPut]
