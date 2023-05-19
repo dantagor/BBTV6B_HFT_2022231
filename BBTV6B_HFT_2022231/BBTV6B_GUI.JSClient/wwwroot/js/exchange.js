@@ -2,6 +2,7 @@
 let connection;
 let exchangeIdToUpdate = -1;
 GetExchangeData();
+//setupSignalR();
 
 // Get & Display Exchange Data
 async function GetExchangeData() {
@@ -99,6 +100,40 @@ function DeleteExchange(id) {
             GetExchangeData();
         })
         .catch((error) => { console.error('Error: ', error) });
+}
+
+// SignalR
+function setupSignalR() {
+    connection = new signalR.HubConnectionBuilder()
+        .withUrl("http://localhost:33531/hub")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+
+    connection.on("ExchangeCreated", (user, message) => {
+        GetExchangeData();
+    });
+
+    connection.on("ExchangeDeleted", (user, message) => {
+        GetExchangeData();
+    });
+
+    connection.on("ExchangeUpdated", (user, message) => {
+        GetExchangeData();
+    });
+
+    connection.onclose(async () => {
+        await start();
+    });
+    start();
+}
+async function start() {
+    try {
+        await connection.start();
+        console.log("SignalR Connected.");
+    } catch (error) {
+        console.log(error);
+        setTimeout(start, 5000);
+    }
 }
 
 // Other FXs
