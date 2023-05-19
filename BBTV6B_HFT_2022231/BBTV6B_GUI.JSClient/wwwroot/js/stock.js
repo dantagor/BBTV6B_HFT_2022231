@@ -28,7 +28,7 @@ function DisplayStockData() {
                 <td>
                     <button type="button" class="btn btn-primary" onclick="ModifyExchange('${t.id}')">Buy</button>
                     <button type="button" class="btn btn-warning" onclick="ModifyExchange('${t.id}')">Edit</button>
-                    <button type="button" class="btn btn-danger" onclick="DeleteExchange('${t.id}')">Delete</button>
+                    <button type="button" class="btn btn-danger" onclick="DeleteStock('${t.id}')">Delete</button>
                 </td>
             </tr>
             `;
@@ -64,6 +64,19 @@ function CreateNewStock() {
     document.getElementById('newStockExcId').value = "";
     document.getElementById('newStockDividend').value = "";
     document.getElementById('newStockPrice').value = "";
+}
+function DeleteStock(id) {
+    fetch('http://localhost:33531/stock/' + id, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json', },
+        body: null
+    })
+        .then(response => response)
+        .then(data => {
+            console.log('Success: ', data);
+            GetStockData();
+        })
+        .catch((error) => { console.error('Error: ', error) });
 }
 
 // Other FXs
