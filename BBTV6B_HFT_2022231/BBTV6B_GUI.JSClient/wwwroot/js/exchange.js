@@ -58,7 +58,34 @@ function CreateNewExchange() {
     document.getElementById('newExcRegion').value = "";
 }
 function ModifyExchange(id) {
-
+    document.getElementById("f_editExchange").classList.remove("d-none");
+    let e = GetExchangeById(id);
+    document.getElementById("modExcTicker").value = e.nameShort;
+    document.getElementById("modExcName").value = e.name;
+    document.getElementById("modExcRegion").value = e.region;
+    exchangeIdToUpdate = e.id;
+    //console.log(exchangeIdToUpdate);
+}
+function UpdateExchange() {
+    // Get data from form inputs
+    let ticker = document.getElementById('modExcTicker').value;
+    let name = document.getElementById('modExcName').value;
+    let region = document.getElementById('modExcRegion').value;
+    // Send Update call to API
+    fetch('http://localhost:33531/exchange', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', },
+        body: JSON.stringify(
+            { id: exchangeIdToUpdate, nameShort: ticker, name: name, region: region })
+    })
+        .then(response => response)
+        .then(data => {
+            console.log('Success: ', data);
+            GetExchangeData();
+        })
+        .catch(error => { console.log('Error: ', error) });
+    // Hide Edit Form
+    document.getElementById("f_editExchange").classList.add("d-none");
 }
 
 // Other FXs
@@ -68,4 +95,7 @@ function GetUniqueExchangeId(max) {
         id = Math.floor(Math.random() * max) + 1;
     } while (exchanges.filter(x => x.id == id).length > 0);
     return id;
+}
+function GetExchangeById(id) {
+    return exchanges.filter(e => e.id == id)[0];
 }

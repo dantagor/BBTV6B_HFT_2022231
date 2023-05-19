@@ -49,7 +49,7 @@ namespace BBTV6B_HFT_2022231.Endpoint.Controllers
         public void Update([FromBody] Exchange value)
         {
             this.logic.Update(value);
-            hub.Clients.All.SendAsync("ExchangeUpdated", value);
+            //hub.Clients.All.SendAsync("ExchangeUpdated", value);
         }
 
         [HttpDelete("{id}")]
@@ -57,7 +57,7 @@ namespace BBTV6B_HFT_2022231.Endpoint.Controllers
         {
             var ExchangeToDelete = this.logic.Read(id);
             this.logic.Delete(id);
-            hub.Clients.All.SendAsync("ExchangeDeleted", ExchangeToDelete);
+            //hub.Clients.All.SendAsync("ExchangeDeleted", ExchangeToDelete);
         }
     }
 }
