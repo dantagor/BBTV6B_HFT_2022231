@@ -88,7 +88,7 @@ function ModifyStock(id) {
     document.getElementById("modStockExcId").value = s.exchangeId;
 
     stockIdToUpdate = s.id;
-    console.log(stockIdToUpdate);
+    //console.log(stockIdToUpdate);
 }
 function UpdateStock() {
     // Get data from form inputs
@@ -114,6 +114,11 @@ function UpdateStock() {
 
     // Hide Edit Form
     document.getElementById("f_editStock").classList.add("d-none");
+}
+
+// Stock Stats
+function GetHighestDividendStockByRegion() {
+
 }
 
 // Other FXs

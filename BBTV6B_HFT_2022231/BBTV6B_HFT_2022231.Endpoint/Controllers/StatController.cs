@@ -1,7 +1,9 @@
-﻿using BBTV6B_HFT_2022231.Logic.Interfaces;
+﻿using BBTV6B_HFT_2022231.Endpoint.Services;
+using BBTV6B_HFT_2022231.Logic.Interfaces;
 using BBTV6B_HFT_2022231.Models.DTOs;
 using BBTV6B_HFT_2022231.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +17,13 @@ namespace BBTV6B_HFT_2022231.Endpoint.Controllers
     {
         ITransactionLogic transLogic;
         IStockLogic stockLogic;
+        IHubContext<SignalRHub> hub;
 
-        public StatController(ITransactionLogic transLogic, IStockLogic stockLogic)
+        public StatController(ITransactionLogic transLogic, IStockLogic stockLogic, IHubContext<SignalRHub> hub)
         {
             this.transLogic = transLogic;
             this.stockLogic = stockLogic;
+            this.hub = hub;
         }
 
         [HttpGet]

@@ -13,7 +13,7 @@ namespace BBTV6B_HFT_2022231.Endpoint.Controllers
     public class ExchangeController : ControllerBase
     {
         IExchangeLogic logic;
-        private readonly IHubContext<SignalRHub> hub;
+        IHubContext<SignalRHub> hub;
 
         //public ExchangeController(IExchangeLogic logic, IHubContext<SignalRHub> hub)
         //{
@@ -21,9 +21,10 @@ namespace BBTV6B_HFT_2022231.Endpoint.Controllers
         //    this.hub = hub;
         //}
 
-        public ExchangeController(IExchangeLogic logic)
+        public ExchangeController(IExchangeLogic logic, IHubContext<SignalRHub> hub)
         {
             this.logic = logic;
+            this.hub = hub;
         }
 
         [HttpGet]

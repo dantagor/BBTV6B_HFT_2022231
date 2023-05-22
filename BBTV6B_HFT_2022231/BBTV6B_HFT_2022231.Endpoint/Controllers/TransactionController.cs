@@ -1,6 +1,8 @@
-﻿using BBTV6B_HFT_2022231.Logic.Interfaces;
+﻿using BBTV6B_HFT_2022231.Endpoint.Services;
+using BBTV6B_HFT_2022231.Logic.Interfaces;
 using BBTV6B_HFT_2022231.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 
@@ -11,10 +13,11 @@ namespace BBTV6B_HFT_2022231.Endpoint.Controllers
     public class TransactionController : ControllerBase
     {
         ITransactionLogic logic;
-
-        public TransactionController(ITransactionLogic logic)
+        IHubContext<SignalRHub> hub;
+        public TransactionController(ITransactionLogic logic, IHubContext<SignalRHub> hub)
         {
             this.logic = logic;
+            this.hub = hub;
         }
 
         [HttpGet]
