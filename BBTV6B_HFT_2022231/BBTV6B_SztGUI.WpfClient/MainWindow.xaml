@@ -10,6 +10,17 @@
         <local:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="1" VerticalAlignment="Top" Background="DeepSkyBlue">
+            <Button x:Name="b_exchange" Content="Tőzsde" Margin="10" Padding="10" Background="White"/>
+            <Button x:Name="b_stock" Content="Részvények" Margin="10" Padding="10" Background="White"/>
+            <Button x:Name="b_transaction" Content="Tranzakciók" Margin="10" Padding="10" Background="White"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Background="DeepSkyBlue" VerticalAlignment="Top" Height="58">
 
+        </StackPanel>
     </Grid>
 </Window>

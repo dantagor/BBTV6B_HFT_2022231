@@ -38,8 +38,19 @@
                 <div class="col-sm-2">
                     <input type="text" required class="form-control mb-3" id="statStockRegion" placeholder="Region" />
                 </div>
-                <div class="col-sm-3">
-                    <button type="button" onclick="" class="btn btn-primary">Show Result</button>
+                <div class="col-sm-6">
+                    <button type="button" onclick="GetHighestDividendStockByRegion()" class="btn btn-primary">Show Result</button>
+                    <span id="txt_highDivStockFromRegion"></span>
+                </div>
+            </div>
+            <h5 class="text-secondary">Best Selling Stock:</h5>
+            <div class="row gx-3">
+                <div class="col-sm-2">
+                    <input type="text" required class="form-control mb-3" id="statStockExchange" placeholder="Exchange" />
+                </div>
+                <div class="col-sm-6">
+                    <button type="button" onclick="BestSellingStockByExchange()" class="btn btn-primary">Show Result</button>
+                    <span id="txt_bestStockByExchange"></span>
                 </div>
             </div>
         </div>

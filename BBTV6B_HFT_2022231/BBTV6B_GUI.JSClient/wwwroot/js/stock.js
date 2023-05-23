@@ -117,8 +117,59 @@ function UpdateStock() {
 }
 
 // Stock Stats
-function GetHighestDividendStockByRegion() {
+async function GetHighestDividendStockByRegion() {
+    let region = document.getElementById('statStockRegion').value;
+    await fetch("http://localhost:33531/Stat/HighestDividendStockFromRegion?region="+region)
+        .then(x => x.json())
+        .then(y => {
+            //console.log(y);
+            document.getElementById('txt_highDivStockFromRegion').innerHTML = `#${y.id}: ${y.company}, osztalék: ${y.dividend}%`;
+        });
+}
+async function BestSellingStockByExchange() {
+    let exchange = document.getElementById('statStockExchange').value;
+    exchange = exchange.replace(" ", "%20");
+    console.log(exchange);
+    await fetch("http://localhost:33531/Stat/BestSellerStockByExchange?exchange=" + exchange)
+        .then(x => x.json())
+        .then(y => {
+            //console.log(y);
+            document.getElementById('txt_bestStockByExchange').innerHTML = `#${y.id}: [${y.ticker}] ${y.company}`;
+        });
+}
 
+// SignalR
+function setupSignalR() {
+    connection = new signalR.HubConnectionBuilder()
+        .withUrl("http://localhost:33531/hub")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+
+    connection.on("StockCreated", (user, message) => {
+        GetStockData();
+    });
+
+    connection.on("StockDeleted", (user, message) => {
+        GetStockData();
+    });
+
+    connection.on("StockUpdated", (user, message) => {
+        GetStockData();
+    });
+
+    connection.onclose(async () => {
+        await start();
+    });
+    start();
+}
+async function start() {
+    try {
+        await connection.start();
+        console.log("SignalR Connected.");
+    } catch (error) {
+        console.log(error);
+        setTimeout(start, 5000);
+    }
 }
 
 // Other FXs
