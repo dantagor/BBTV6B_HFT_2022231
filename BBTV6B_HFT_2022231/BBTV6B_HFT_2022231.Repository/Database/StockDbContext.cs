@@ -68,15 +68,15 @@ namespace BBTV6B_HFT_2022231.Repository
             //t1.Stock = nio;
             Transaction t2 = new Transaction(2, 2, 6, new DateTime(2022, 11, 2));       // 6 Alibaba stock purchase
             //t2.Stock = ali;
-            Transaction t3 = new Transaction(3, 2, 3, new DateTime(2022, 11, 3));       // 3 Alibaba stock purchase
+            //Transaction t3 = new Transaction(3, 2, 3, new DateTime(2022, 11, 3));       // 3 Alibaba stock purchase
             //t3.Stock = ali;
             Transaction t4 = new Transaction(4, 3, 2, new DateTime(2022, 11, 3));       // 2 Apple stock purchase
             //t4.Stock = apple;
             Transaction t5 = new Transaction(5, 4, 4, new DateTime(2022, 11, 3));       // 4 Amazon stock purchase
             //t5.Stock = amaz;
-            Transaction t6 = new Transaction(6, 5, 100, new DateTime(2022, 11, 4));     // 100 LONGi stock purchase
+            Transaction t6 = new Transaction(6, 5, 10, new DateTime(2022, 11, 4));     // 100 LONGi stock purchase
             //t6.Stock = longi;
-            Transaction t7 = new Transaction(7, 6, 250, new DateTime(2022, 11, 4));     // 250 Sany stock purchase
+            Transaction t7 = new Transaction(7, 6, 25, new DateTime(2022, 11, 4));     // 250 Sany stock purchase
             //t7.Stock = sany;
             Transaction t8 = new Transaction(8, 7, 20, new DateTime(2022, 11, 5));      // 20 SoftBank stock purchase
             //t8.Stock = soft;
@@ -85,7 +85,7 @@ namespace BBTV6B_HFT_2022231.Repository
 
             modelBuilder.Entity<Exchange>().HasData(nyse,nasdaq,sse,tse);
             modelBuilder.Entity<Stock>().HasData(nio, ali, apple, amaz, longi, sany, soft, mits);
-            modelBuilder.Entity<Transaction>().HasData(t1, t2, t3, t4, t5, t6, t7, t8, t9);
+            modelBuilder.Entity<Transaction>().HasData(t1, t2, t4, t5, t6, t7, t8, t9);
         }
     }
 }
