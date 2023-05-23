@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BBTV6B_SztGUI.WpfClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="800">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
@@ -15,12 +15,35 @@
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="1" VerticalAlignment="Top" Background="DeepSkyBlue">
-            <Button x:Name="b_exchange" Content="Tőzsde" Margin="10" Padding="10" Background="White"/>
-            <Button x:Name="b_stock" Content="Részvények" Margin="10" Padding="10" Background="White"/>
-            <Button x:Name="b_transaction" Content="Tranzakciók" Margin="10" Padding="10" Background="White"/>
+            <Button x:Name="b_exchange" Content="Exchanges" Margin="10" Padding="10" Background="White"/>
+            <Button x:Name="b_stock" Content="Stocks" Margin="10" Padding="10" Background="White" Click="b_stock_Click"/>
+            <Button x:Name="b_transaction" Content="Transactions" Margin="10" Padding="10" Background="White" Click="b_transaction_Click"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Column="1" Background="DeepSkyBlue" VerticalAlignment="Top" Height="58">
 
+        </StackPanel>
+        <ListBox ItemsSource="{Binding Exchanges}" SelectedItem="{Binding SelectedExchange}" Grid.Column="0" Margin="0,58,0,0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Content="{Binding NameShort }"/>
+                        <Label Content="{Binding Name }"/>
+                        <Label Content="{Binding Region }"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1" Margin="0,58,0,0">
+            <Label Content="Short Name" Background="LightBlue" Padding="10"/>
+            <TextBox x:Name="t_SName" Text="{Binding SelectedExchange.NameShort}" Padding="10" Margin="0,0,0,10"/>
+            <Label Content="Name" Background="LightBlue" Padding="10"/>
+            <TextBox x:Name="t_Name" Text="{Binding SelectedExchange.Name}" Padding="10" Margin="0,0,0,10"/>
+            <Label Content="Region" Background="LightBlue" Padding="10"/>
+            <TextBox x:Name="t_FoundYear" Text="{Binding SelectedExchange.Region}" Padding="10" Margin="0,0,0,10"/>
+            <Button Content="Create Exchange" Command="{Binding CreateExchangeCommand}" Margin="10" Padding="10"/>
+            <Button Content="Delete Exchange" Command="{Binding DeleteExchangeCommand}" Margin="10" Padding="10"/>
+            <Button Content="Update Exchange" Command="{Binding UpdateExchangeCommand}" Margin="10" Padding="10"/>
+            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
         </StackPanel>
     </Grid>
 </Window>

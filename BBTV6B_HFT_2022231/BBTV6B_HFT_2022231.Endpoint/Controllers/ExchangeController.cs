@@ -15,12 +15,6 @@ namespace BBTV6B_HFT_2022231.Endpoint.Controllers
         IExchangeLogic logic;
         IHubContext<SignalRHub> hub;
 
-        //public ExchangeController(IExchangeLogic logic, IHubContext<SignalRHub> hub)
-        //{
-        //    this.logic = logic;
-        //    this.hub = hub;
-        //}
-
         public ExchangeController(IExchangeLogic logic, IHubContext<SignalRHub> hub)
         {
             this.logic = logic;
@@ -43,14 +37,14 @@ namespace BBTV6B_HFT_2022231.Endpoint.Controllers
         public void Create([FromBody] Exchange value)
         {
             this.logic.Create(value);
-            //hub.Clients.All.SendAsync("ExchangeCreated", value);
+            hub.Clients.All.SendAsync("ExchangeCreated", value);
         }
 
         [HttpPut]
         public void Update([FromBody] Exchange value)
         {
             this.logic.Update(value);
-            //hub.Clients.All.SendAsync("ExchangeUpdated", value);
+            hub.Clients.All.SendAsync("ExchangeUpdated", value);
         }
 
         [HttpDelete("{id}")]
@@ -58,7 +52,7 @@ namespace BBTV6B_HFT_2022231.Endpoint.Controllers
         {
             var ExchangeToDelete = this.logic.Read(id);
             this.logic.Delete(id);
-            //hub.Clients.All.SendAsync("ExchangeDeleted", ExchangeToDelete);
+            hub.Clients.All.SendAsync("ExchangeDeleted", ExchangeToDelete);
         }
     }
 }

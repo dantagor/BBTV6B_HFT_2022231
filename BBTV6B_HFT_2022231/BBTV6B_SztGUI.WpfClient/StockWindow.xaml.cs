@@ -10,25 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BBTV6B_SztGUI.WpfClient
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for StockWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StockWindow : Window
     {
-        public MainWindow()
+        public StockWindow()
         {
             InitializeComponent();
         }
 
-        private void b_stock_Click(object sender, RoutedEventArgs e)
+        private void b_exchange_Click(object sender, RoutedEventArgs e)
         {
-            StockWindow sw = new StockWindow();
-            sw.Show();
+            MainWindow mw = new MainWindow();
+            mw.Show();
             this.Hide();
         }
 

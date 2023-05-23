@@ -1,0 +1,55 @@
+﻿<Window x:Class="BBTV6B_SztGUI.WpfClient.StockWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BBTV6B_SztGUI.WpfClient"
+        mc:Ignorable="d"
+        Title="StockWindow" Height="600" Width="800">
+    <Window.DataContext>
+        <local:StockWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.ColumnSpan="1" VerticalAlignment="Top" Background="DeepSkyBlue">
+            <Button x:Name="b_exchange" Content="Exchanges" Margin="10" Padding="10" Background="White" Click="b_exchange_Click"/>
+            <Button x:Name="b_stock" Content="Stocks" Margin="10" Padding="10" Background="White"/>
+            <Button x:Name="b_transaction" Content="Transactions" Margin="10" Padding="10" Background="White" Click="b_transaction_Click"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Background="DeepSkyBlue" VerticalAlignment="Top" Height="58">
+            <StackPanel Orientation="Horizontal" Background="DeepSkyBlue">
+                <Label Content="HighestDividendStockFromRegion: "/>
+                <Label Content="{Binding HighestDividendStockFromRegion.Company}"/>
+            </StackPanel>
+        </StackPanel>
+        <ListBox ItemsSource="{Binding Stocks}" SelectedItem="{Binding SelectedStock}" Grid.Column="0" Margin="0,58,0,0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Content="{Binding Company }"/>
+                        <Label Content="{Binding Ticker }"/>
+                        <Label Content="{Binding Price }"/>
+                        <Label Content="{Binding Dividend }"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1" Margin="0,58,0,0">
+            <Label Content="Company" Background="LightBlue" Padding="10"/>
+            <TextBox x:Name="t_company" Text="{Binding SelectedStock.Company}" Padding="10" Margin="0,0,0,10"/>
+            <Label Content="Ticker" Background="LightBlue" Padding="10"/>
+            <TextBox x:Name="t_ticker" Text="{Binding SelectedStock.Ticker}" Padding="10" Margin="0,0,0,10"/>
+            <Label Content="Price" Background="LightBlue" Padding="10"/>
+            <TextBox x:Name="t_price" Text="{Binding SelectedStock.Price}" Padding="10" Margin="0,0,0,10"/>
+            <Label Content="Dividend" Background="LightBlue" Padding="10"/>
+            <TextBox x:Name="t_dividend" Text="{Binding SelectedStock.Dividend}" Padding="10" Margin="0,0,0,10"/>
+            <Button Content="Create Stock" Command="{Binding CreateStockCommand}" Margin="10" Padding="10"/>
+            <Button Content="Delete Stock" Command="{Binding DeleteStockCommand}" Margin="10" Padding="10"/>
+            <Button Content="Update Stock" Command="{Binding UpdateStockCommand}" Margin="10" Padding="10"/>
+            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+        </StackPanel>
+    </Grid>
+</Window>

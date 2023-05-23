@@ -37,18 +37,24 @@ namespace BBTV6B_HFT_2022231.Endpoint.Controllers
         public void Create([FromBody] Stock value)
         {
             this.logic.Create(value);
+            this.hub.Clients.All.SendAsync("StockCreated", value);
+
         }
 
         [HttpPut]
         public void Update([FromBody] Stock value)
         {
             this.logic.Update(value);
+            this.hub.Clients.All.SendAsync("StockUpdated", value);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var stockToDelete = this.logic.Read(id);
             this.logic.Delete(id);
+            this.hub.Clients.All.SendAsync("StockDeleted", stockToDelete);
+
         }
     }
 }

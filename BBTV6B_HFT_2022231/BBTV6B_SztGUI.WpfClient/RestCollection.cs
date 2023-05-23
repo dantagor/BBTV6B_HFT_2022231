@@ -296,7 +296,10 @@ namespace BBTV6B_SztGUI.WpfClient
                 this.notify.AddHandler<T>(type.Name + "Created", (T item) =>
                 {
                     items.Add(item);
-                    CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+                    });
                 });
                 this.notify.AddHandler<T>(type.Name + "Deleted", (T item) =>
                 {
@@ -304,7 +307,12 @@ namespace BBTV6B_SztGUI.WpfClient
                     if (element != null)
                     {
                         items.Remove(item);
-                        CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+                        //CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+                        });
+
                     }
                     else
                     {
@@ -314,6 +322,17 @@ namespace BBTV6B_SztGUI.WpfClient
                 });
                 this.notify.AddHandler<T>(type.Name + "Updated", (T item) =>
                 {
+                    var element = items.FirstOrDefault(t => t.Equals(item));
+                    if (element != null)
+                    {
+                        items.Remove(item);
+                        items.Add(item);
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+                        });
+
+                    }
                     Init();
                 });
 
