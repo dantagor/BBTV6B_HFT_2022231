@@ -42,5 +42,18 @@ namespace BBTV6B_HFT_2022231.Models.Entities
         {
             return $"#{Id}-TRANSACTION: {Date} - StockId = {StockId}, Amount = {Amount}";
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Transaction)
+            {
+                Transaction value = (Transaction)obj;
+                return this.Id == value.Id;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

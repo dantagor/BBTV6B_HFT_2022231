@@ -53,5 +53,18 @@ namespace BBTV6B_HFT_2022231.Models.Entities
         {
             return $"#{Id}-STOCK: Ticker = {Ticker}, Company = {Company}, Price = {Price}, Dividend = {Dividend}, ExchangeId = {ExchangeId}";
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Stock)
+            {
+                Stock value = (Stock)obj;
+                return this.Id == value.Id;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

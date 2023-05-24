@@ -40,5 +40,18 @@ namespace BBTV6B_HFT_2022231.Models.Entities
         {
             return $"#{Id}-EXCHANGE: {NameShort}- {Name}, Region = {Region}";
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Exchange)
+            {
+                Exchange value = (Exchange)obj;
+                return this.Id == value.Id;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
