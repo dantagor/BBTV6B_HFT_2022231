@@ -14,6 +14,7 @@ namespace BBTV6B_SztGUI.WpfClient
 {
     public class StockWindowViewModel : ObservableRecipient
     {
+        Random r;
         public RestCollection<Stock> Stocks { get; set; }
 
         private Stock selectedStock;
@@ -54,7 +55,7 @@ namespace BBTV6B_SztGUI.WpfClient
                 {
                     Stocks.Add(new Stock()
                     {
-                        Id = Stocks.Count()+1,
+                        Id = IdGenerator(),
                         Company = SelectedStock.Company,
                         Ticker = SelectedStock.Ticker,
                         Price = SelectedStock.Price,
@@ -107,6 +108,18 @@ namespace BBTV6B_SztGUI.WpfClient
         {
             get { return errorMessage; }
             set { SetProperty(ref errorMessage, value); }
+        }
+
+        public int IdGenerator()
+        {
+            int res = -1;
+            r = new Random();
+            do
+            {
+                res = r.Next(100) + 1;
+            } while (Stocks.Contains(new Stock() { Id = res }));
+            //Exchanges.Select(t => t.Id == res).Count() > 0
+            return res;
         }
 
         private Stock highestDividendStockFromRegion;

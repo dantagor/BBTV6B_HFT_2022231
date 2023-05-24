@@ -109,16 +109,16 @@ function setupSignalR() {
         .configureLogging(signalR.LogLevel.Information)
         .build();
 
-    connection.on("ExchangeCreated", (user, message) => {
-        GetExchangeData();
+    connection.on("TransactionCreated", (user, message) => {
+        GetTransactionData();
     });
 
-    connection.on("ExchangeDeleted", (user, message) => {
-        GetExchangeData();
+    connection.on("TransactionDeleted", (user, message) => {
+        GetTransactionData();
     });
 
-    connection.on("ExchangeUpdated", (user, message) => {
-        GetExchangeData();
+    connection.on("TransactionUpdated", (user, message) => {
+        GetTransactionData();
     });
 
     connection.onclose(async () => {

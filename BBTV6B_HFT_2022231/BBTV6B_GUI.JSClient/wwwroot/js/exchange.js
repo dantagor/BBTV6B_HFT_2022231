@@ -2,7 +2,7 @@
 let connection;
 let exchangeIdToUpdate = -1;
 GetExchangeData();
-//setupSignalR();
+setupSignalR();
 
 // Get & Display Exchange Data
 async function GetExchangeData() {

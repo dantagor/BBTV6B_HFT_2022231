@@ -14,6 +14,7 @@ namespace BBTV6B_SztGUI.WpfClient
 {
     public class MainWindowViewModel : ObservableRecipient
     {
+        Random r;
         public RestCollection<Exchange> Exchanges { get; set; }
 
         public MainWindowViewModel()
@@ -25,7 +26,7 @@ namespace BBTV6B_SztGUI.WpfClient
                 {
                     Exchanges.Add(new Exchange()
                     {
-                        Id = Exchanges.Count()+1,
+                        Id = IdGenerator(),
                         NameShort = selectedExchange.NameShort,
                         Name = selectedExchange.Name,
                         Region = selectedExchange.Region
@@ -99,6 +100,18 @@ namespace BBTV6B_SztGUI.WpfClient
         {
             get { return errorMessage; }
             set { SetProperty(ref errorMessage, value); }
+        }
+
+        public int IdGenerator()
+        {
+            int res = -1;
+            r = new Random();
+            do
+            {
+                res = r.Next(100)+1;
+            } while (Exchanges.Contains(new Exchange() { Id = res}));
+            //Exchanges.Select(t => t.Id == res).Count() > 0
+            return res;
         }
 
     }

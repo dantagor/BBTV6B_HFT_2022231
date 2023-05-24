@@ -53,7 +53,7 @@ namespace BBTV6B_HFT_2022231.Endpoint.Controllers
         {
             var transactionToDelete = this.logic.Read(id);
             this.logic.Delete(id);
-            this.hub.Clients.All.SendAsync("OrderDeleted", transactionToDelete);
+            this.hub.Clients.All.SendAsync("TransactionDeleted", transactionToDelete);
 
         }
     }

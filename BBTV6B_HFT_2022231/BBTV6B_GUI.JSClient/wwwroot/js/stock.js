@@ -2,7 +2,7 @@
 let connection;
 let stockIdToUpdate = -1;
 GetStockData();
-//setupSignalR();
+setupSignalR();
 
 // Get & Display Stock Data
 async function GetStockData() {

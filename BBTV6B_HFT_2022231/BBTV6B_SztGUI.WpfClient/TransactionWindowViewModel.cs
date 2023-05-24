@@ -14,6 +14,7 @@ namespace BBTV6B_SztGUI.WpfClient
 {
     class TransactionWindowViewModel : ObservableRecipient
     {
+        Random r;
         public RestCollection<Transaction> Transactions { get; set; }
 
         private Transaction selectedTransaction;
@@ -52,7 +53,7 @@ namespace BBTV6B_SztGUI.WpfClient
                 {
                     Transactions.Add(new Transaction()
                     {
-                        Id = Transactions.Count()+1,
+                        Id = IdGenerator(),
                         Amount = SelectedTransaction.Amount,
                         Date = SelectedTransaction.Date
                     });
@@ -102,6 +103,18 @@ namespace BBTV6B_SztGUI.WpfClient
         {
             get { return errorMessage; }
             set { SetProperty(ref errorMessage, value); }
+        }
+
+        public int IdGenerator()
+        {
+            int res = -1;
+            r = new Random();
+            do
+            {
+                res = r.Next(100) + 1;
+            } while (Transactions.Contains(new Transaction() { Id = res }));
+            //Exchanges.Select(t => t.Id == res).Count() > 0
+            return res;
         }
 
         //private Stock bestSellerStockByExchange;
